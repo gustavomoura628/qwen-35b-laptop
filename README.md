@@ -15,7 +15,7 @@ Three ingredients: a CUDA build of llama.cpp (instead of the Vulkan prebuilt), l
 per-layer LRU cache that keeps recently-used expert weights in spare VRAM (hit rate ~59 % with 15 % of the experts
 cached) — and flags from a measured sweep. No RAM upgrade, no smaller quant.
 
-Files: `serve.sh` (launcher with the tuned defaults), `pi/models.json` (config for the [pi](https://pi.dev) coding agent).
+Files: `serve.sh` (launcher with the tuned defaults), `pi/models.json` and `pi/settings.json` (config for the [pi](https://pi.dev) coding agent).
 
 ## Requirements
 
@@ -132,6 +132,11 @@ mkdir -p ~/.pi/agent && cp pi/models.json ~/.pi/agent/models.json   # or merge t
 Then `pi` in a project → `/model` → "Qwen3.6-35B-A3B (laptop)". The `compat` flags are required (llama.cpp rejects
 the `developer` role and `reasoning_effort`); `thinkingFormat: "qwen-chat-template"` lets pi toggle thinking per
 request. Keep `maxTokens` ≥ 8192 — thinking uses a few thousand tokens before the answer.
+
+Web search for the agent: `pi install npm:pi-web-access` — works with no API keys out of the box. `pi/settings.json`
+is the resulting settings file with this model as the default and the extension registered; copy it to
+`~/.pi/agent/settings.json` if starting fresh. A self-hosted SearXNG can be pointed at via `searxngBaseUrl` in
+`~/.pi/web-search.json` (optional; see the extension's README).
 
 ## 6. Tuning for a different VRAM/RAM
 

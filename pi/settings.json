@@ -1,0 +1,7 @@
+{
+  "defaultProvider": "qwen-laptop",
+  "defaultModel": "Qwen3.6-35B-A3B-UD-IQ4_XS.gguf",
+  "packages": [
+    "npm:pi-web-access@0.17.1"
+  ]
+}
