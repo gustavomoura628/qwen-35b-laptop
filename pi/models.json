@@ -1,0 +1,23 @@
+{
+  "providers": {
+    "qwen-laptop": {
+      "baseUrl": "http://127.0.0.1:8091/v1",
+      "api": "openai-completions",
+      "apiKey": "none",
+      "compat": {
+        "supportsDeveloperRole": false,
+        "supportsReasoningEffort": false
+      },
+      "models": [
+        {
+          "id": "Qwen3.6-35B-A3B-UD-IQ4_XS.gguf",
+          "name": "Qwen3.6-35B-A3B (laptop)",
+          "reasoning": true,
+          "thinkingFormat": "qwen-chat-template",
+          "contextWindow": 32768,
+          "maxTokens": 8192
+        }
+      ]
+    }
+  }
+}
